@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片懒加载</title>
+    <link rel="stylesheet" href="css/swiper.min.css" />
+  </head>
+  <style>
+      .swiper-container{
+          width: 500px;
+          height: 300px;
+          margin: 0 auto;
+      }
+      .swiper-slide{
+          width: initial;
+          height: initial;
+      }
+      .swiper-slide img{
+          width: 100%;
+          height: 100%;
+      }
+      .swiper-lazy{
+          width: initial;
+          height: initial;
+      }
+      .lazy-test{
+          height: 500px;
+          width: 800px;
+          background-color: gray;
+          margin: 50px auto;
+      }
+      .lazy-test img{
+          width: 100%;
+          height: 100%;
+      }
+      .test{
+          width: 18.75rem;
+          height: 25rem;
+          background-color: deeppink;
+          font-size: 1.125rem;
+      }
+  </style>
+  <body>
+    <div class="test">
+        你好啊
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img data-src="img/wait.png" data-srcset="img/web2.jpg 2x" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="img/web.jpg" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <!-- <div class="swiper-slide">
+            <img data-src="img/web2.jpg" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+        </div> -->
+        <div class="swiper-slide">
+            <img data-src="img/weclome.png" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <!-- <div class="swiper-pagination"></div> -->
+
+      <!-- 如果需要导航按钮 -->
+      <!-- <div class="swiper-button-prev"></div> -->
+      <!-- <div class="swiper-button-next"></div> -->
+
+      <!-- 如果需要滚动条 -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+    <div class="lazy-test">
+        <img class="lazy" src="" data-original="img/weclome.png" />
+    </div>
+    <div class="lazy-test">
+        <img class="lazy" src="" data-original="img/web.jpg" />
+    </div>
+    <div class="lazy-test">
+        <img class="lazy" src="" data-original="img/web2.jpg" />
+    </div>
+    <div class="lazy-test">
+        <img class="lazy" src="" data-original="img/wait.png" />
+    </div>
+  </body>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/lazyload.min.js"></script>
+  <script>
+      var Myswiper = new Swiper(".swiper-container",{
+        autoplay:true,
+        loop:true,
+        lazy:{
+            loadPrevNext:true
+        }
+        // navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        // }
+      })
+      $('img.lazy').lazyload({
+        threshold:100,
+        effect:"fadeIn",
+        failure_limit : 10
+      });
+  </script>
+</html>

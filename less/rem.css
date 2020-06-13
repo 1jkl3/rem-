@@ -1,0 +1,10 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+.warpper {
+  width: 15rem;
+  height: 1.76rem;
+  background-color: red;
+}
