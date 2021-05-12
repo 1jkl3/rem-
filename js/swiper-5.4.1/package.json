@@ -68,7 +68,7 @@
     "gulp-connect": "^5.7.0",
     "gulp-open": "^3.0.1",
     "less": "^3.11.1",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "rollup": "^2.4.0",
     "terser": "^4.6.11"
   },
